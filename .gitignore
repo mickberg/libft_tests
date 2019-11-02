@@ -1,0 +1,4 @@
+tests/
+objs/
+*.swp
+*.out

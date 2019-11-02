@@ -6,10 +6,9 @@
  * Last Modified By  : Mikael Berglund <mikael.berglund2@gmail.com>
  */
 
-#include <string.h>
 #include "testlib.h"
 
-int test_ft_strlen(void)
+int main(void)
 {
 	int		failed = 0;
 	char	*name = "ft_strlen";
@@ -23,5 +22,5 @@ int test_ft_strlen(void)
 	failed += test_int(strlen(str2), ft_strlen(str2), name, "normal");
 	failed += test_int(strlen(str3), ft_strlen(str3), name, "terminator in middle");
 	failed += test_int(strlen(str4), ft_strlen(str4), name, "pointer to middle");
-	return (failed);
+	return (0);
 }

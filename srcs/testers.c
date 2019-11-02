@@ -22,6 +22,7 @@ int	test_ptr(void *ex, void *test, char *name, char *test_id)
 {
 	if ((ex == NULL || test == NULL) || (ex != NULL && test != NULL && ex == test))
 	{
+		printf("Passed [%s] [%s]\n", name, test_id);
 		return (0);
 	}
 	else
@@ -35,7 +36,7 @@ int	test_mem(void *ex, void *test, size_t len, char *name, char *test_id)
 {
 	if ((ex == NULL && test == NULL) || (ex != NULL && test != NULL && (memcmp(ex,test,len) == 0)))
 	{
-		//printf("Passed [%s] [%s]\n", name, test_id);
+		printf("Passed [%s] [%s]\n", name, test_id);
 		return (0);
 	}
 	else
@@ -54,7 +55,7 @@ int	test_int(int ex, int test, char *name, char *test_id)
 	}
 	else
 	{
-		//printf("Passed [%s] [%s]\n", name, test_id);
+		printf("Passed [%s] [%s]\n", name, test_id);
 		return (0);
 	}
 }
@@ -78,7 +79,7 @@ int	test_intarr(int len, int *ex, int *test, char *name, char *test_id)
 
 	if ((ex == NULL && test == NULL) || (ex != NULL && test != NULL && !failed))
 	{
-		//printf("Passed [%s] [%s]\n", name, test_id);
+		printf("Passed [%s] [%s]\n", name, test_id);
 		return (0);
 	}
 	else
@@ -109,7 +110,7 @@ int	test_char(char ex, char test, char *name, char *test_id)
 	}
 	else
 	{
-		//printf("Passed [%s] [%s]\n", name, test_id);
+		printf("Passed [%s] [%s]\n", name, test_id);
 		return (0);
 	}
 }
@@ -119,7 +120,7 @@ int	test_str(char *ex, char *test, char *name, char *test_id)
 {
 	if ((ex == NULL && test == NULL) || (ex != NULL && test != NULL && strcmp(ex, test) == 0))
 	{
-		//printf("Passed [%s] [%s]\n", name, test_id);
+		printf("Passed [%s] [%s]\n", name, test_id);
 		return (0);
 	}
 	else

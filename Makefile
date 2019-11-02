@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 17:10:30 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/02 18:24:51 by mberglun         ###   ########.fr        #
+#    Updated: 2019/11/02 19:31:03 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,14 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = testlib
 
 # Directories, library and tests
-SRC_DIR = ./srcs/
+SRC_DIR = srcs/
 OBJ_DIR = objs/
+OUT_DIR	= tests/
 
 # Files, library and tests
-SRC_FILES = testers.c test_main.c \
-	ft_strlen.c ft_toupper.c ft_tolower.c ft_strcmp.c ft_strncmp.c ft_abs.c \
+SRC_FILES = ft_strlen.c ft_abs.c
+
+#	ft_strlen.c ft_toupper.c ft_tolower.c ft_strcmp.c ft_strncmp.c ft_abs.c \
 	ft_intlen.c ft_itoa.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	ft_isprint.c ft_atoi.c ft_strcat.c ft_strncat.c ft_strstr.c ft_strnstr.c \
 	ft_strchr.c ft_strrchr.c ft_strlcat.c ft_strcpy.c ft_strncpy.c ft_strdup.c \
@@ -35,19 +37,20 @@ SRC_FILES = testers.c test_main.c \
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES:.c=.o))
 
 OBJS = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
+OUTS = $(addprefix $(OUT_DIR), $(SRC_FILES:.c=.out))
 MKDIR_P = mkdir -p
 
-all: dirs $(NAME)
+all: dirs $(OUTS)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L../libft/ -lft
+$(OUTS): $(OUT_DIR)%.out : $(SRC_DIR)%.c srcs/testers.c
+	$(CC) $(CFLAGS) $< srcs/testers.c -o $@ -L../libft/ -lft -I ./
+#	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L../libft/ -lft
 
-$(OBJS): $(OBJ_DIR)%.o : $(SRC_DIR)%.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I ./
+#$(OBJS): $(OBJ_DIR)%.o : $(SRC_DIR)%.c
+#	$(CC) $(CFLAGS) -c $< -o $@ -I ./
 
 clean:
-	-rm -f $(OBJS)
-	-rm -rf $(OBJ_DIR)
+	-rm -rf $(OUT_DIR)
 
 fclean: clean
 	-rm -f $(NAME)
@@ -55,7 +58,7 @@ fclean: clean
 re: fclean all
 
 # Creates necessary directories as needed, ex. for objects.
-dirs: $(OBJ_DIR)
+dirs: $(OUT_DIR)
 
-$(OBJ_DIR):
-	$(MKDIR_P) $(OBJ_DIR)
+$(OUT_DIR):
+	$(MKDIR_P) $(OUT_DIR)
