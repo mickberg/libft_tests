@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
-#include "../../libft.h"
+#include "../libft/libft.h"
 
 int		test_ft_strlen(void);
 int		test_ft_toupper(void);
