@@ -19,9 +19,9 @@
 
 #include "testlib.h"
 
-int	test_ft_isalnum(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_isalnum";
 
 	char	c1 = '1';
@@ -31,11 +31,11 @@ int	test_ft_isalnum(void)
 	char	c5 = 'Z';
 	char	c6 = '\n';;
 
-	failed += test_int(1, ft_isalnum(c1), name, "1");
-	failed += test_int(1, ft_isalnum(c2), name, "a");
-	failed += test_int(0, ft_isalnum(c3), name, "]");
-	failed += test_int(0, ft_isalnum(c4), name, "1");
-	failed += test_int(1, ft_isalnum(c5), name, "z");
-	failed += test_int(0, ft_isalnum(c6), name, "newline");
-	return (failed);
+	test_int(1, ft_isalnum(c1), name, "1");
+	test_int(1, ft_isalnum(c2), name, "a");
+	test_int(0, ft_isalnum(c3), name, "]");
+	test_int(0, ft_isalnum(c4), name, "1");
+	test_int(1, ft_isalnum(c5), name, "z");
+	test_int(0, ft_isalnum(c6), name, "newline");
+	return (0);
 }

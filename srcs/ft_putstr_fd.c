@@ -12,7 +12,7 @@
 
 #include "testlib.h"
 
-int	test_ft_putstr_fd(void)
+int	main(void)
 {
 
 	ft_putstr_fd("ft_putstr_fd", 0);

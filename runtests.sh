@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:26:21 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/02 19:44:46 by mberglun         ###   ########.fr        #
+#    Updated: 2019/11/02 20:31:05 by mikaelber        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ found=0
 
 if [ -z "$1" ]
 then
+	found=1
 	for file in ${FILES[@]}
 	do
 		if [ -f ./tests/$file ]

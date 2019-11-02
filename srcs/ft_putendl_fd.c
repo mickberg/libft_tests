@@ -12,7 +12,7 @@
 
 #include "testlib.h"
 
-int	test_ft_putendl_fd(void)
+int	main(void)
 {
 	ft_putendl_fd("ft_putendl_fd", 0);
 	return (0);

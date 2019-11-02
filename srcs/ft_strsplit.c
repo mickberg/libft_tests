@@ -6,15 +6,15 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 16:23:14 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/01 16:49:23 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:12:20 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 
-int	test_ft_strsplit(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strsplit";
 
 	char	*exp = ft_strdup("kalleankapelle");
@@ -29,7 +29,7 @@ int	test_ft_strsplit(void)
 	while (testres[i] != NULL)
 		ft_strlcat(testconcat, testres[i++], explen + 1);
 
-	failed += test_mem(exp, testconcat, explen + 1, name, "test1");
+	test_mem(exp, testconcat, explen + 1, name, "test1");
 
 	test = ft_strdup("kalleankapelle");
 
@@ -40,6 +40,6 @@ int	test_ft_strsplit(void)
 	while (testres[i] != NULL)
 		ft_strlcat(testconcat, testres[i++], explen + 1);
 
-	failed += test_mem(exp, testconcat, explen + 1, name, "test2");
-	return (failed);
+	test_mem(exp, testconcat, explen + 1, name, "test2");
+	return (0);
 }

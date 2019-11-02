@@ -20,9 +20,8 @@
 
 #include "testlib.h"
 
-int	test_ft_isprint(void)
+int	main(void)
 {
-	int failed = 0;
 	char *name = "ft_isprint";
 
 	char c1 = ' ';
@@ -30,9 +29,9 @@ int	test_ft_isprint(void)
 	char c3 = (char)(31);
 	char c4 = (char)(127);
 
-	failed += test_int(1, ft_isprint(c1), name, "space");
-	failed += test_int(1, ft_isprint(c2), name, "~");
-	failed += test_int(0, ft_isprint(c3), name, "first left");
-	failed += test_int(0, ft_isprint(c4), name, "first right");
-	return (failed);
+	test_int(1, ft_isprint(c1), name, "space");
+	test_int(1, ft_isprint(c2), name, "~");
+	test_int(0, ft_isprint(c3), name, "first left");
+	test_int(0, ft_isprint(c4), name, "first right");
+	return (0);
 }

@@ -6,12 +6,11 @@
  * Last Modified By  : Mikael Berglund <mikael.berglund2@gmail.com>
  */
 
-#include <string.h>
+
 #include "testlib.h"
 
-int	test_ft_strncmp(void)
+int	main(void)
 {
-	int failed = 0;
 	char *name = "ft_strncmp";
 
 	char *s1_1 = "kalle Pelle";
@@ -33,12 +32,12 @@ int	test_ft_strncmp(void)
 	int	len6 = 4;
 
 
-	failed += test_int(strncmp(s1_1, s1_2, strlen(s1_2)),
+	test_int(strncmp(s1_1, s1_2, strlen(s1_2)),
 		ft_strncmp(s1_1, s1_2, strlen(s1_2)), name, "case sensitivity");
-	failed += test_int(strncmp(s2, s2, 10), ft_strncmp(s2, s2, 10), name, "terminator in middle");
-	failed += test_int(strncmp(str_p, s3, strlen(str_p)), ft_strncmp(str_p, s3, strlen(str_p)), name, "pointer to str");
-	failed += test_int(strncmp(s4_1, s4_2, len4), ft_strncmp(s4_1, s4_2, len4), name, "0 len");
-	failed += test_int(strncmp(s5_1, s5_2, len5), ft_strncmp(s5_1, s5_2, len5), name, "0 len empty s2");
-	failed += test_int(strncmp(s6_1, s6_2, len6), ft_strncmp(s6_1, s6_2, len6), name, "exact len match");
-	return (failed);
+	test_int(strncmp(s2, s2, 10), ft_strncmp(s2, s2, 10), name, "terminator in middle");
+	test_int(strncmp(str_p, s3, strlen(str_p)), ft_strncmp(str_p, s3, strlen(str_p)), name, "pointer to str");
+	test_int(strncmp(s4_1, s4_2, len4), ft_strncmp(s4_1, s4_2, len4), name, "0 len");
+	test_int(strncmp(s5_1, s5_2, len5), ft_strncmp(s5_1, s5_2, len5), name, "0 len empty s2");
+	test_int(strncmp(s6_1, s6_2, len6), ft_strncmp(s6_1, s6_2, len6), name, "exact len match");
+	return (0);
 }

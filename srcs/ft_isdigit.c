@@ -19,9 +19,8 @@
 
 #include "testlib.h"
 
-int	test_ft_isdigit(void)
+int	main(void)
 {
-	int failed = 0;
 	char *name = "ft_isdigit";
 
 	char c1 = '0';
@@ -29,9 +28,9 @@ int	test_ft_isdigit(void)
 	char c3 = (char)(47);
 	char c4 = (char)(58);
 
-	failed += test_int(1, ft_isdigit(c1), name, "0");
-	failed += test_int(1, ft_isdigit(c2), name, "9");
-	failed += test_int(0, ft_isdigit(c3), name, "first left");
-	failed += test_int(0, ft_isdigit(c4), name, "first right");
-	return (failed);
+	test_int(1, ft_isdigit(c1), name, "0");
+	test_int(1, ft_isdigit(c2), name, "9");
+	test_int(0, ft_isdigit(c3), name, "first left");
+	test_int(0, ft_isdigit(c4), name, "first right");
+	return (0);
 }

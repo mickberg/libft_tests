@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                     :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 19:02:32 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/01 19:39:48 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:07:35 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void ft_del(void *content, size_t size)
 		printf("size not 0\n");
 }
 
-int	test_ft_lstdel(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_lstdel";
 
 	t_list	**tests = (t_list**)malloc(sizeof(t_list*) * 6);
@@ -46,11 +46,11 @@ int	test_ft_lstdel(void)
 
 	ft_lstdel(&test, ft_del);
 
-	failed += test_ptr(NULL, tests[0], name, "test1");
-	failed += test_ptr(NULL, tests[1], name, "test2");
-	failed += test_ptr(NULL, tests[2], name, "test3");
-	failed += test_ptr(NULL, tests[3], name, "test4");
-	failed += test_ptr(NULL, tests[4], name, "test5");
-	failed += test_ptr(NULL, tests[5], name, "test6");
-	return (failed);
+	test_ptr(NULL, tests[0], name, "test1");
+	test_ptr(NULL, tests[1], name, "test2");
+	test_ptr(NULL, tests[2], name, "test3");
+	test_ptr(NULL, tests[3], name, "test4");
+	test_ptr(NULL, tests[4], name, "test5");
+	test_ptr(NULL, tests[5], name, "test6");
+	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:55:42 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/02 19:35:43 by mberglun         ###   ########.fr        #
+#    Updated: 2019/11/02 21:20:45 by mikaelber        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,5 +73,4 @@ FILES=(
 	ft_strtrim.out
 	ft_tolower.out
 	ft_toupper.out
-	test_main.out
 );

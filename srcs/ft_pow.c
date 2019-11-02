@@ -11,17 +11,17 @@
 /* ************************************************************************** */
 
 #include "testlib.h"
-#include <math.h>
 
-int	test_ft_pow(void)
+
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_pow";
 
-	failed += test_int(pow(10, -3), ft_pow(10, -3), name, "test1");
-	failed += test_int(pow(0.3, 3), ft_pow(0.3, 3), name, "test2");
-	failed += test_int(pow(4, 5), ft_pow(4, 5), name, "test3");
-	failed += test_int(pow(0, 0), ft_pow(0, 0), name, "test4");
-	failed += test_int(pow(9, 0), ft_pow(9, 0), name, "test5");
-	return (failed);
+	test_int(pow(10, -3), ft_pow(10, -3), name, "test1");
+	test_int(pow(0.3, 3), ft_pow(0.3, 3), name, "test2");
+	test_int(pow(4, 5), ft_pow(4, 5), name, "test3");
+	test_int(pow(0, 0), ft_pow(0, 0), name, "test4");
+	test_int(pow(9, 0), ft_pow(9, 0), name, "test5");
+	return (0);
 }

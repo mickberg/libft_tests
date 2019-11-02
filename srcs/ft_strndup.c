@@ -19,13 +19,13 @@
 
 #include "testlib.h"
 
-int	test_ft_strndup(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strndup";
 
-	failed += test_str(strndup("Copy this please", 10), ft_strndup("Copy this please", 10), name, "length less");
-	failed += test_str(strndup("kalle", 10), ft_strndup("kalle", 10), name, "length more");
-	failed += test_str(strndup("kallepelle", 10), ft_strndup("kallepelle", 10), name, "length exact");
-	return (failed);
+	test_str(strndup("Copy this please", 10), ft_strndup("Copy this please", 10), name, "length less");
+	test_str(strndup("kalle", 10), ft_strndup("kalle", 10), name, "length more");
+	test_str(strndup("kallepelle", 10), ft_strndup("kallepelle", 10), name, "length exact");
+	return (0);
 }

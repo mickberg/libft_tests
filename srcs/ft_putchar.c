@@ -12,7 +12,7 @@
 
 #include "testlib.h"
 
-int	test_ft_putchar(void)
+int	main(void)
 {
 	char	*test = "[test string \n\t for ft_putchar\n]\n";
 	while (*test != '\0')

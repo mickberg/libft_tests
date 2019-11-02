@@ -20,9 +20,8 @@
 
 #include "testlib.h"
 
-int	test_ft_isascii(void)
+int	main(void)
 {
-	int failed = 0;
 	char *name = "ft_isascii";
 
 	char c1 = '1';
@@ -32,11 +31,11 @@ int	test_ft_isascii(void)
 	char c5 = 'Z';
 	char c6 = '\n';
 
-	failed += test_int(1, ft_isascii(c1), name, "1");
-	failed += test_int(1, ft_isascii(c2), name, "a");
-	failed += test_int(1, ft_isascii(c3), name, "[");
-	failed += test_int(1, ft_isascii(c4), name, "{");
-	failed += test_int(1, ft_isascii(c5), name, "z");
-	failed += test_int(1, ft_isascii(c6), name, "newline");
-	return (failed);
+	test_int(1, ft_isascii(c1), name, "1");
+	test_int(1, ft_isascii(c2), name, "a");
+	test_int(1, ft_isascii(c3), name, "[");
+	test_int(1, ft_isascii(c4), name, "{");
+	test_int(1, ft_isascii(c5), name, "z");
+	test_int(1, ft_isascii(c6), name, "newline");
+	return (0);
 }

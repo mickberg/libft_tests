@@ -12,12 +12,12 @@
 
 #include "testlib.h"
 
-int	test_ft_putchar_fd(void)
+int	main(void)
 {
-	int		failed = 0;
+	
 
 	ft_putchar_fd('x', 0);
 	ft_putchar_fd('\n', 1);
 
-	return (failed);
+	return (0);
 }

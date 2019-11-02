@@ -6,7 +6,7 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 16:34:30 by mberglun          #+#    #+#             */
-/*   Updated: 2019/10/31 17:43:31 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:17:31 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static char	ft_upper(unsigned int i, char c)
 		return c;
 }
 
-int	test_ft_strmapi(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strmapi";
 
 	char	*exp = ft_strnew(15);
@@ -37,24 +37,24 @@ int	test_ft_strmapi(void)
 	memset(test, '.', 12);
 	memset(test, 'a', 11);
 
-	failed += test_mem(exp, ft_strmapi(test, &ft_upper), 15, name, "test1");
+	test_mem(exp, ft_strmapi(test, &ft_upper), 15, name, "test1");
 
 	exp[0] = '\0';
 	test[0] = '\0';
-	failed += test_mem(ft_strnew(0), ft_strmapi(test, &ft_upper), 15, name, "\"empty\" string");
+	test_mem(ft_strnew(0), ft_strmapi(test, &ft_upper), 15, name, "\"empty\" string");
 
 	memset(test, 'A', 11);
 	memset(exp, '`', 5);
 	memset(test, '`', 5);
-	failed += test_mem(exp, ft_strmapi(test, &ft_upper), 15, name, "test3");
+	test_mem(exp, ft_strmapi(test, &ft_upper), 15, name, "test3");
 
 	memset(exp, 'A', 4);
 	memset(test, 'a', 4);
 	memset(exp, '[', 2);
 	memset(test, '[', 2);
-	failed += test_mem(exp, ft_strmapi(test, &ft_upper), 15, name, "test4");
+	test_mem(exp, ft_strmapi(test, &ft_upper), 15, name, "test4");
 
 
-	return (failed);
+	return (0);
 
 }

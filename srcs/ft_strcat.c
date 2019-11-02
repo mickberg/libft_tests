@@ -7,11 +7,11 @@
  */
 
 #include "testlib.h"
-#include <string.h>
 
-int	test_ft_strcat(void)
+
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strcat";
 
 	char	str1[40] = "Leading string";
@@ -23,10 +23,10 @@ int	test_ft_strcat(void)
 	char	empty[11] = "";
 	char	*fill = "ten length";
 
-	failed += test_str(strcat(str1, str2), ft_strcat(str1, str2), name, "simple test");
-	failed += test_str(strcat(base, a), ft_strcat(base, a), name, "base -> a");
-	failed += test_str(strcat(base, b), ft_strcat(base, b), name, "base -> b");
-	failed += test_str(strcat(base, c), ft_strcat(base, c), name, "base -> c");
-	failed += test_str(strcat(empty, fill), ft_strcat(empty, fill), name, "from empty");
-	return (failed);
+	test_str(strcat(str1, str2), ft_strcat(str1, str2), name, "simple test");
+	test_str(strcat(base, a), ft_strcat(base, a), name, "base -> a");
+	test_str(strcat(base, b), ft_strcat(base, b), name, "base -> b");
+	test_str(strcat(base, c), ft_strcat(base, c), name, "base -> c");
+	test_str(strcat(empty, fill), ft_strcat(empty, fill), name, "from empty");
+	return (0);
 }

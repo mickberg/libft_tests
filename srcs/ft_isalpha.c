@@ -19,9 +19,8 @@
 
 #include "testlib.h"
 
-int	test_ft_isalpha(void)
+int	main(void)
 {
-	int failed = 0;
 	char *name = "ft_isalpha";
 
 	char c1 = '1';
@@ -31,11 +30,11 @@ int	test_ft_isalpha(void)
 	char c5 = 'Z';
 	char c6 = '\n';
 
-	failed += test_int(0, ft_isalpha(c1), name, "1");
-	failed += test_int(1, ft_isalpha(c2), name, "a");
-	failed += test_int(1, ft_isalpha(c3), name, "z");
-	failed += test_int(1, ft_isalpha(c4), name, "A");
-	failed += test_int(1, ft_isalpha(c5), name, "Z");
-	failed += test_int(0, ft_isalpha(c6), name, "newline");
-	return (failed);
+	test_int(0, ft_isalpha(c1), name, "1");
+	test_int(1, ft_isalpha(c2), name, "a");
+	test_int(1, ft_isalpha(c3), name, "z");
+	test_int(1, ft_isalpha(c4), name, "A");
+	test_int(1, ft_isalpha(c5), name, "Z");
+	test_int(0, ft_isalpha(c6), name, "newline");
+	return (0);
 }

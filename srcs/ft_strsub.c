@@ -6,15 +6,15 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 17:58:49 by mberglun          #+#    #+#             */
-/*   Updated: 2019/10/31 18:08:00 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:12:28 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 
-int	test_ft_strsub(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strsub";
 
 	char	*exp = ft_strnew(6);
@@ -27,8 +27,8 @@ int	test_ft_strsub(void)
 	memset(test, 'a', 9);
 	memset(test, 'k', 8);
 
-	failed += test_mem(exp, ft_strsub(test, 8, 6), 7, name, "test1");
-	failed += test_mem(ft_strnew(0), ft_strsub(test, 8, 0), 1, name, "test2");
-	return (failed);
+	test_mem(exp, ft_strsub(test, 8, 6), 7, name, "test1");
+	test_mem(ft_strnew(0), ft_strsub(test, 8, 0), 1, name, "test2");
+	return (0);
 }
 

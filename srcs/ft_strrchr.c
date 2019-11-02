@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 18:34:40 by mberglun          #+#    #+#             */
-/*   Updated: 2019/10/24 19:10:09 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:12:14 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 
-int	test_ft_strrchr(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strrchr";
 
 	char	*str1 = "lorem ipsum";
@@ -23,9 +23,9 @@ int	test_ft_strrchr(void)
 	char	c3 = 'm';
 	char	c4 = '\0';
 
-	failed += test_str(strrchr(str1, c1), ft_strrchr(str1, c1), name, "missmatch");
-	failed += test_str(strrchr(str1, c2), ft_strrchr(str1, c2), name, "space");
-	failed += test_str(strrchr(str1, c3), ft_strrchr(str1, c3), name, "match first");
-	failed += test_str(strrchr(str1, c4), ft_strrchr(str1, c4), name, "terminator");
-	return (failed);
+	test_str(strrchr(str1, c1), ft_strrchr(str1, c1), name, "missmatch");
+	test_str(strrchr(str1, c2), ft_strrchr(str1, c2), name, "space");
+	test_str(strrchr(str1, c3), ft_strrchr(str1, c3), name, "match first");
+	test_str(strrchr(str1, c4), ft_strrchr(str1, c4), name, "terminator");
+	return (0);
 }

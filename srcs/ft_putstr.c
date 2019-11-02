@@ -12,7 +12,7 @@
 
 #include "testlib.h"
 
-int	test_ft_putstr(void)
+int	main(void)
 {
 
 	char	*teststr = "[test string for \n\t ft_putstr\n]\n";

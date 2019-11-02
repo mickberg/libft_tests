@@ -19,9 +19,9 @@
 
 #include "testlib.h"
 
-int	test_ft_strnstr(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strnstr";
 
 	char *hay1 = "abbabba";
@@ -35,11 +35,11 @@ int	test_ft_strnstr(void)
 	char	*need4 = "dolor";
 	int		len4 = 15;
 
-	failed += test_str(strnstr(hay1, need1, 5), ft_strnstr(hay1, need1, 5), name, "multiple matches");
-	failed += test_str(strnstr(hay2, need2, 10), strnstr(hay2, need2, 10), name, "empty haystack");
-	failed += test_str(strnstr(hay3, need3, 1), ft_strnstr(hay3, need3, 1), name, "empty needle");
-	failed += test_str(strnstr(hay3, need2, 3), ft_strnstr(hay3, need2, 3), name, "missmatch");
+	test_str(strnstr(hay1, need1, 5), ft_strnstr(hay1, need1, 5), name, "multiple matches");
+	test_str(strnstr(hay2, need2, 10), strnstr(hay2, need2, 10), name, "empty haystack");
+	test_str(strnstr(hay3, need3, 1), ft_strnstr(hay3, need3, 1), name, "empty needle");
+	test_str(strnstr(hay3, need2, 3), ft_strnstr(hay3, need2, 3), name, "missmatch");
 
-	failed += test_str(strnstr(hay4, need4, len4), ft_strnstr(hay4, need4, len4), name, "??");
-	return (failed);
+	test_str(strnstr(hay4, need4, len4), ft_strnstr(hay4, need4, len4), name, "??");
+	return (0);
 }

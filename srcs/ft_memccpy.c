@@ -6,15 +6,15 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 17:18:04 by mberglun          #+#    #+#             */
-/*   Updated: 2019/10/25 18:10:36 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:08:16 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 
-int	test_ft_memccpy(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_memccpy";
 
 	char str1[20] = "                   ";
@@ -28,11 +28,11 @@ int	test_ft_memccpy(void)
 	int	int2[3] = {56,56,56};
 
 
-	failed += test_str(memccpy(str1, str2, 'p', 19), ft_memccpy(ft_str1, str2, 'p', 19), name, "normal");
-	failed += test_str(str1, ft_str1, name, "normal - copied");
+	test_str(memccpy(str1, str2, 'p', 19), ft_memccpy(ft_str1, str2, 'p', 19), name, "normal");
+	test_str(str1, ft_str1, name, "normal - copied");
 
-	failed += test_intarr(3, memccpy(int1, int2, 'p', 3), ft_memccpy(ft_int1, int2, 'p', 3), name, "int");
-	failed += test_intarr(3, int1, ft_int1, name, "int - copied");
+	test_intarr(3, memccpy(int1, int2, 'p', 3), ft_memccpy(ft_int1, int2, 'p', 3), name, "int");
+	test_intarr(3, int1, ft_int1, name, "int - copied");
 
-	return (failed);
+	return (0);
 }

@@ -1,8 +1,8 @@
 #include "testlib.h"
 
-int	test_ft_memdel(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_memdel";
 
 	int		*test;
@@ -12,6 +12,6 @@ int	test_ft_memdel(void)
 
 	memset(test, 0, 4);
 	ft_memdel((void*)&test);
-	failed += test_mem(NULL, test, 4, name, "test1");
-	return (failed);
+	test_mem(NULL, test, 4, name, "test1");
+	return (0);
 }

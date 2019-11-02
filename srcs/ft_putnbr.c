@@ -12,7 +12,7 @@
 
 #include "testlib.h"
 
-int	test_ft_putnbr(void)
+int	main(void)
 {
 	int		min = MIN_INT;
 	int		max = MAX_INT;

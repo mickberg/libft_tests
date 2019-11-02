@@ -19,9 +19,9 @@
 
 #include "testlib.h"
 
-int	test_ft_strncpy(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strncpy";
 
 	char	dst1[10] = "";
@@ -48,9 +48,9 @@ int	test_ft_strncpy(void)
 	char	*src3 = "lorem";
 	int		len3 = 6;
 
-	failed += test_str(strncpy(dst1, src1, 9), ft_strncpy(ft_dst1, ft_src1, 9), name, "src longer");
-	failed += test_str(strncpy(dst2, src2, 50), ft_strncpy(ft_dst2, ft_src2, 50), name, "src shorter");
+	test_str(strncpy(dst1, src1, 9), ft_strncpy(ft_dst1, ft_src1, 9), name, "src longer");
+	test_str(strncpy(dst2, src2, 50), ft_strncpy(ft_dst2, ft_src2, 50), name, "src shorter");
 
-	failed += test_str(strncpy(dest3, src3, len3), ft_strncpy(ft_dest3, src3, len3), name, "??");
-	return (failed);
+	test_str(strncpy(dest3, src3, len3), ft_strncpy(ft_dest3, src3, len3), name, "??");
+	return (0);
 }

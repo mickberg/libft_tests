@@ -7,11 +7,10 @@
  */
 
 #include "testlib.h"
-#include <stdlib.h>
 
-int	test_ft_atoi(void)
+
+int	main(void)
 {
-	int failed = 0;
 	char	*name = "ft_atoi";
 	char	*n1 = "-2147483648";
 	char	*n2 = "	 +2147483637";
@@ -22,13 +21,13 @@ int	test_ft_atoi(void)
 	char	*n7 = "\t\n\r\v\f 469 \n";
 	char	*n8	= "\t\n\r\v\f  469 \n";
 
-	failed += test_int(atoi(n1), ft_atoi(n1), name, "min int");
-	failed += test_int(atoi(n2), ft_atoi(n2), name, "max in");
-	failed += test_int(atoi(n3), ft_atoi(n3), name, "minus, no digits");
-	failed += test_int(atoi(n4), ft_atoi(n4), name, "overflow");
-	failed += test_int(atoi(n5), ft_atoi(n5), name, "leading zero");
-	failed += test_int(atoi(n6), ft_atoi(n6), name, "leading zeros");
-	failed += test_int(atoi(n7), ft_atoi(n7), name, "whitespace chars");
-	failed += test_int(atoi(n8), ft_atoi(n8), name, "whitespace chars");
-	return (failed);
+	test_int(atoi(n1), ft_atoi(n1), name, "min int");
+	test_int(atoi(n2), ft_atoi(n2), name, "max in");
+	test_int(atoi(n3), ft_atoi(n3), name, "minus, no digits");
+	test_int(atoi(n4), ft_atoi(n4), name, "overflow");
+	test_int(atoi(n5), ft_atoi(n5), name, "leading zero");
+	test_int(atoi(n6), ft_atoi(n6), name, "leading zeros");
+	test_int(atoi(n7), ft_atoi(n7), name, "whitespace chars");
+	test_int(atoi(n8), ft_atoi(n8), name, "whitespace chars");
+	return (0);
 }

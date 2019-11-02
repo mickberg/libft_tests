@@ -19,9 +19,9 @@
 
 #include "testlib.h"
 
-int	test_ft_strlcat(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strlcat";
 
 	char	str1[20] = "kalle";
@@ -77,24 +77,22 @@ int	test_ft_strlcat(void)
 	char	*str11 = "lorem ipsum dolor sit amet";
 
 
-	failed += test_int(strlcat(str1, str2, 20), ft_strlcat(ft_str1, ft_str2, 20), name, "normal concat");
-	failed += test_str(str1, ft_str1, name, "normal concat");
-	failed += test_int(strlcat(str3, str4, 10), ft_strlcat(ft_str3, ft_str4, 10), name, "cutoff to empty");
-	failed += test_str(str3, ft_str3, name, "cutoff to empty");
-	failed += test_int(strlcat(str5, str7, 20), ft_strlcat(ft_str5, ft_str7, 20), name, "src empty");
-	failed += test_str(str5, ft_str5, name, "src empty");
-	failed += test_int(strlcat(str5, str8, 10), ft_strlcat(ft_str5, ft_str8, 10), name, "size smaller than len");
-	failed += test_str(str5, ft_str5, name, "size smaller than len");
+	test_int(strlcat(str1, str2, 20), ft_strlcat(ft_str1, ft_str2, 20), name, "normal concat");
+	test_str(str1, ft_str1, name, "normal concat");
+	test_int(strlcat(str3, str4, 10), ft_strlcat(ft_str3, ft_str4, 10), name, "cutoff to empty");
+	test_str(str3, ft_str3, name, "cutoff to empty");
+	test_int(strlcat(str5, str7, 20), ft_strlcat(ft_str5, ft_str7, 20), name, "src empty");
+	test_str(str5, ft_str5, name, "src empty");
+	test_int(strlcat(str5, str8, 10), ft_strlcat(ft_str5, ft_str8, 10), name, "size smaller than len");
+	test_str(str5, ft_str5, name, "size smaller than len");
 
-	failed += test_int(strlcat(dest9, str9, len9), ft_strlcat(ft_dest9, ft_str9, len9), name, "size smaller than length");
-	failed += test_str(dest9, ft_dest9, name, "size smaller than length");
+	test_int(strlcat(dest9, str9, len9), ft_strlcat(ft_dest9, ft_str9, len9), name, "size smaller than length");
+	test_str(dest9, ft_dest9, name, "size smaller than length");
 
+	test_int(strlcat(dest10, str10, len10), ft_strlcat(ft_dest10, str10, len10), name, "test10");
+	test_str(dest10, ft_dest10, name, "test10 str");
 
-	failed += test_int(strlcat(dest10, str10, len10), ft_strlcat(ft_dest10, str10, len10), name, "test10");
-	failed += test_str(dest10, ft_dest10, name, "test10 str");
-
-
-	failed += test_int(strlcat(dest11, str11, len11), ft_strlcat(ft_dest11, str11, len11), name, "size one more than dstlen str");
-	failed += test_str(dest11, ft_dest11, name, "size one more than dstlen str");
-	return (failed);
+	test_int(strlcat(dest11, str11, len11), ft_strlcat(ft_dest11, str11, len11), name, "size one more than dstlen str");
+	test_str(dest11, ft_dest11, name, "size one more than dstlen str");
+	return (0);
 }

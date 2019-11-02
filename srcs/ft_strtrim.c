@@ -6,15 +6,15 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 16:08:02 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/01 16:21:16 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:12:32 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 
-int	test_ft_strtrim(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strtrim";
 
 	char	*exp = ft_strdup("kalle\t\tii");
@@ -27,11 +27,11 @@ int	test_ft_strtrim(void)
 	ft_strncpy(test+12, "ii", 2);
 
 
-	failed += test_mem(exp, ft_strtrim(test), 6, name, "test1");
+	test_mem(exp, ft_strtrim(test), 6, name, "test1");
 
 	exp = ft_strdup("kalle anka");
 	test = ft_strdup("kalle anka");
-	failed += test_mem(exp, ft_strtrim(test), 11, name, "test2");
+	test_mem(exp, ft_strtrim(test), 11, name, "test2");
 
-	return (failed);
+	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "testlib.h"
 
-int	test_ft_putendl(void)
+int	main(void)
 {
 	ft_putendl("[test string\n\tfor ft_putenndl \n]");
 

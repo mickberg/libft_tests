@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 16:34:30 by mberglun          #+#    #+#             */
-/*   Updated: 2019/10/31 17:38:46 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:11:10 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static char	ft_upper(char c)
 	return cc;
 }
 
-int	test_ft_strmap(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strmap";
 
 	char	*exp = ft_strnew(15);
@@ -35,24 +35,24 @@ int	test_ft_strmap(void)
 	memset(test, '.', 12);
 	memset(test, 'a', 11);
 
-	failed += test_mem(exp, ft_strmap(test, &ft_upper), 15, name, "test1");
+	test_mem(exp, ft_strmap(test, &ft_upper), 15, name, "test1");
 
 	memset(test, 'A', 11);
 	exp[0] = '\0';
 	test[0] = '\0';
-	failed += test_mem(ft_strnew(0), ft_strmap(test, &ft_upper), 15, name, "\"empty\" string");
+	test_mem(ft_strnew(0), ft_strmap(test, &ft_upper), 15, name, "\"empty\" string");
 
 	memset(exp, '`', 5);
 	memset(test, '`', 5);
-	failed += test_mem(exp, ft_strmap(test, &ft_upper), 15, name, "test3");
+	test_mem(exp, ft_strmap(test, &ft_upper), 15, name, "test3");
 
 	memset(exp, 'A', 4);
 	memset(test, 'a', 4);
 	memset(exp, '[', 2);
 	memset(test, '[', 2);
-	failed += test_mem(exp, ft_strmap(test, &ft_upper), 15, name, "test4");
+	test_mem(exp, ft_strmap(test, &ft_upper), 15, name, "test4");
 
 
-	return (failed);
+	return (0);
 
 }

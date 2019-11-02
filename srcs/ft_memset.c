@@ -19,9 +19,9 @@
 
 #include "testlib.h"
 
-int	test_ft_memset(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_memset";
 
 	char	*dest1;
@@ -36,7 +36,7 @@ int	test_ft_memset(void)
 
 	memset(dest1, 's', 14);
 	memset(ft_dest1, 's', 14);
-	failed += test_str(memset(dest1, 'c', 5), ft_memset(ft_dest1, 'c', 5), name, "test1");
+	test_str(memset(dest1, 'c', 5), ft_memset(ft_dest1, 'c', 5), name, "test1");
 
-	return (failed);
+	return (0);
 }

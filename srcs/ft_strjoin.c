@@ -6,15 +6,15 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 17:54:05 by mberglun          #+#    #+#             */
-/*   Updated: 2019/10/31 18:09:01 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:10:33 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 
-int	test_ft_strjoin(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_strjoin";
 
 	char	*exp = ft_strnew(15);
@@ -30,7 +30,7 @@ int	test_ft_strjoin(void)
 	memset(test2, 'f', 9);
 	memset(test2, '/', 4);
 
-	failed += test_mem(exp, ft_strjoin(test1, test2), 16, name, "test1");
-	failed += test_mem(ft_strnew(0), ft_strjoin(ft_strnew(0), ft_strnew(0)), 1, name, "test2");
-	return (failed);
+	test_mem(exp, ft_strjoin(test1, test2), 16, name, "test1");
+	test_mem(ft_strnew(0), ft_strjoin(ft_strnew(0), ft_strnew(0)), 1, name, "test2");
+	return (0);
 }

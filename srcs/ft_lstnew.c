@@ -6,15 +6,15 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 18:44:06 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/01 19:01:49 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:19:25 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 
-int	test_ft_lstnew(void)
+int	main(void)
 {
-	int		failed = 0;
+
 	char	*name = "ft_lstnew";
 
 	int		exp[5] = {1,2,3,4,5};
@@ -32,8 +32,8 @@ int	test_ft_lstnew(void)
 
 	t_list	*test = ft_lstnew(test_content, sizeof(int) * test_size);
 
-	failed += test_intarr(5, exp, test->content, name, "content");
-	failed += test_int(sizeof(int) * 5, test->content_size, name, "size");
-	failed += test_mem(NULL, test->next, 1, name, "next");
-	return (failed);
+	test_intarr(5, exp, test->content, name, "content");
+	test_int(sizeof(int) * 5, test->content_size, name, "size");
+	test_mem(NULL, test->next, 1, name, "next");
+	return (0);
 }
