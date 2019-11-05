@@ -6,7 +6,7 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 16:54:33 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/05 12:59:14 by mikaelber        ###   ########.fr       */
+/*   Updated: 2019/11/05 13:07:37 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ int			main(int argc, char	**argv)
 	// Output expected
 	if (n < 0)
 		return ft_expected(n);
-
-	if (n == 1)
+	else if (n == 1)
 	{
 		i = 32;
 		while (i < 127)
