@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:55:42 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/02 21:20:45 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/03 14:32:27 by mikaelber        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,14 +36,6 @@ FILES=(
 	ft_memmove.out
 	ft_memset.out
 	ft_pow.out
-	ft_putchar.out
-	ft_putchar_fd.out
-	ft_putendl.out
-	ft_putendl_fd.out
-	ft_putnbr.out
-	ft_putnbr_fd.out
-	ft_putstr.out
-	ft_putstr_fd.out
 	ft_strcat.out
 	ft_strchr.out
 	ft_strclr.out
@@ -73,4 +65,15 @@ FILES=(
 	ft_strtrim.out
 	ft_tolower.out
 	ft_toupper.out
+);
+
+OFILES=(
+	ft_putchar.out
+	ft_putchar_fd.out
+	ft_putendl.out
+	ft_putendl_fd.out
+	ft_putnbr.out
+	ft_putnbr_fd.out
+	ft_putstr.out
+	ft_putstr_fd.out
 );
