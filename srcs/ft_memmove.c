@@ -31,6 +31,16 @@ int	main(void)
 	memset(test, 0, 15);
 	test_mem(memmove(exp, "test string", 0), ft_memmove(test, "test string", 0), 15, name, "0 len");
 
+
+	size_t	size128 =  128 * 1024 * 1024;
+	char	*test128 = ft_strnew(size128);
+	char	*exp128 = ft_strnew(size128);
+
+	memset(exp128, 'F', size128);
+
+	test_mem(exp128, ft_memmove(test128, exp128, size128), size128, name, "128mb");
+
+
 	return (0);
 }
 
