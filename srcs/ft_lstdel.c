@@ -6,7 +6,7 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 19:02:32 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/02 21:07:35 by mikaelber        ###   ########.fr       */
+/*   Updated: 2019/11/06 11:21:01 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 static void ft_del(void *content, size_t size)
 {
-	if (content != NULL)
-		printf("content not NULL\n");
-	if (size != 0)
-		printf("size not 0\n");
+	if (content != NULL && size != 0)
+		free(content);
 }
 
 int	main(void)
@@ -25,32 +23,23 @@ int	main(void)
 
 	char	*name = "ft_lstdel";
 
-	t_list	**tests = (t_list**)malloc(sizeof(t_list*) * 6);
-	if (!tests)
-		return (1000);
+	t_list	*tests = NULL;
 
-	tests[0] = ft_lstnew(NULL, 23);
-	tests[1] = ft_lstnew(NULL, 9);
-	tests[2] = ft_lstnew(NULL, 9);
-	tests[3] = ft_lstnew(NULL, 9);
-	tests[4] = ft_lstnew(NULL, 9);
-	tests[5] = ft_lstnew(NULL, 9);
+	t_list	*test1 = ft_lstnew("test1", 6);
+	t_list	*test2 = ft_lstnew("test2", 6);
+	t_list	*test3 = ft_lstnew("test3", 6);
+	t_list	*test4 = ft_lstnew("test4", 6);
+	t_list	*test5 = ft_lstnew("test5", 6);
+	t_list	*test6 = ft_lstnew("test6", 6);
+	ft_lstadd(&tests, test1);
+	ft_lstadd(&tests, test2);
+	ft_lstadd(&tests, test3);
+	ft_lstadd(&tests, test4);
+	ft_lstadd(&tests, test5);
+	ft_lstadd(&tests, test6);
 
-	t_list	*test = NULL;
-	int	i = 0;
-	while (i < 6)
-	{
-		ft_lstadd(&test, tests[i]);
-		++i;
-	}
+	ft_lstdel(&tests, ft_del);
 
-	ft_lstdel(&test, ft_del);
-
-	test_ptr(NULL, tests[0], name, "test1");
-	test_ptr(NULL, tests[1], name, "test2");
-	test_ptr(NULL, tests[2], name, "test3");
-	test_ptr(NULL, tests[3], name, "test4");
-	test_ptr(NULL, tests[4], name, "test5");
-	test_ptr(NULL, tests[5], name, "test6");
+	test_ptr(NULL, tests, name, "test0");
 	return (0);
 }
