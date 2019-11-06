@@ -20,7 +20,7 @@ void	print_arr(int *arr, int len)
 
 int	test_ptr(void *ex, void *test, char *name, char *test_id)
 {
-	if ((ex == NULL || test == NULL) || (ex != NULL && test != NULL && ex == test))
+	if ((ex == NULL && test == NULL) || (ex != NULL && test != NULL && ex == test))
 	{
 		printf("Passed [%s] [%s]\n", name, test_id);
 		return (0);

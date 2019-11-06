@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 17:10:30 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/02 21:14:13 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/05 21:28:32 by mikaelber        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC_FILES = ft_strlen.c ft_toupper.c ft_tolower.c ft_strcmp.c ft_strncmp.c ft_ab
 	ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_putchar.c ft_putstr.c ft_putendl.c \
 	ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c \
-	ft_pow.c ft_strndup.c
+	ft_lstfind.c ft_pow.c ft_strndup.c
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES:.c=.o))
 
 OBJS = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
