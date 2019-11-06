@@ -6,16 +6,13 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:55:42 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/06 10:50:03 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/06 20:39:08 by mikaelber        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILES=(
-	ft_lstfind.out
-	ft_abs.out
 	ft_atoi.out
 	ft_bzero.out
-	ft_intlen.out
 	ft_isalnum.out
 	ft_isalpha.out
 	ft_isascii.out
@@ -36,7 +33,6 @@ FILES=(
 	ft_memdel.out
 	ft_memmove.out
 	ft_memset.out
-	ft_pow.out
 	ft_strcat.out
 	ft_strchr.out
 	ft_strclr.out
@@ -55,7 +51,6 @@ FILES=(
 	ft_strncat.out
 	ft_strncmp.out
 	ft_strncpy.out
-	ft_strndup.out
 	ft_strnequ.out
 	ft_strnew.out
 	ft_strnstr.out
