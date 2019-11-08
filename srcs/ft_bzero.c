@@ -6,7 +6,7 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 18:53:38 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/02 21:04:25 by mikaelber        ###   ########.fr       */
+/*   Updated: 2019/11/08 17:57:19 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,26 @@ int	main(void)
 {
 	char	*name = "ft_bzero";
 
-	char	str1[10];
-	char	str2[20];
-	char	str3[5];
+	char	*test = ft_strnew(15);
+	char	*exp = ft_strnew(15);
 
-	char	ft_str1[10];
-	char	ft_str2[20];
-	char	ft_str3[5];
+	memset(test, 'f', 16);
+	memset(exp, 'f', 16);
 
-	bzero(str1, 10);
-	ft_bzero(ft_str1, 10);
-	test_str(str1, ft_str1, name, "normal");
+	bzero(exp, 10);
+	ft_bzero(test, 10);
+	test_mem(exp, test, 16, name, "test1");
 
-	bzero(str2, 11);
-	ft_bzero(ft_str2, 11);
-	test_str(str2, ft_str2, name, "partial fill");
+	bzero(exp, 15);
+	ft_bzero(test, 15);
+	test_mem(exp, test, 16, name, "test2");
 
-	bzero(str3, 5);
-	ft_bzero(ft_str3, 5);
-	test_str(str3, ft_str3, name, "full width");
+	memset(exp, 'f', 16);
+	memset(test, 'f', 16);
+
+	bzero(exp+5, 10);
+	ft_bzero(test+5, 10);
+	test_mem(exp, test, 16, name, "test3");
 
 	return (0);
 }
