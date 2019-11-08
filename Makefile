@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 17:10:30 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/05 21:28:32 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/08 17:44:10 by mikaelber        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ MKDIR_P = mkdir -p
 
 all: dirs $(OUTS)
 
-$(OUTS): $(OUT_DIR)%.out : $(SRC_DIR)%.c srcs/testers.c
+$(OUTS): $(OUT_DIR)%.out : $(SRC_DIR)%.c srcs/testers.c ../libft/libft.a
 	$(CC) $(CFLAGS) $< srcs/testers.c -o $@ -L../libft/ -lft -I ./
 #	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L../libft/ -lft
 
