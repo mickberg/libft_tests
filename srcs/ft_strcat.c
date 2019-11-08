@@ -15,18 +15,21 @@ int	main(void)
 	char	*name = "ft_strcat";
 
 	char	str1[40] = "Leading string";
+	char	_str1[40] = "Leading string";
 	char	*str2 = ", trailing";
 	char	base[30] = "One";
+	char	_base[30] = "One";
 	char	*a = "Two";
 	char	*b = "Three";
 	char	*c = "Four";
 	char	empty[11] = "";
+	char	_empty[11] = "";
 	char	*fill = "ten length";
 
-	test_str(strcat(str1, str2), ft_strcat(str1, str2), name, "simple test");
-	test_str(strcat(base, a), ft_strcat(base, a), name, "base -> a");
-	test_str(strcat(base, b), ft_strcat(base, b), name, "base -> b");
-	test_str(strcat(base, c), ft_strcat(base, c), name, "base -> c");
-	test_str(strcat(empty, fill), ft_strcat(empty, fill), name, "from empty");
+	test_str(strcat(_str1, str2), ft_strcat(str1, str2), name, "simple test");
+	test_str(strcat(_base, a), ft_strcat(base, a), name, "base -> a");
+	test_str(strcat(_base, b), ft_strcat(base, b), name, "base -> b");
+	test_str(strcat(_base, c), ft_strcat(base, c), name, "base -> c");
+	test_str(strcat(_empty, fill), ft_strcat(empty, fill), name, "from empty");
 	return (0);
 }

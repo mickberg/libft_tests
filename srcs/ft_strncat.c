@@ -23,8 +23,7 @@ int	main(void)
 	char	empty[11] = "";
 	char	*fill = "ten length";
 
-	test_str(strncat(str1, str2, strlen(str2)/2),
-		ft_strncat(str1, str2, strlen(str2)/2), name, "simple test");
+	test_str(strncat(str1, str2, strlen(str2)/2), ft_strncat(str1, str2, strlen(str2)/2), name, "simple test");
 	test_str(strncat(base, a, 3), ft_strncat(base, a,3), name, "base -> a");
 	test_str(strncat(base, b, 1), ft_strncat(base, b, 1), name, "base -> b");
 	test_str(strncat(base, c, 4), ft_strncat(base, c, 4), name, "base -> c");
