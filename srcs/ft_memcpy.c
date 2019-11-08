@@ -10,26 +10,26 @@
 
 int	main(void)
 {
-
 	char	*name = "ft_memcpy";
 
-	char	*exp = (char*)malloc(sizeof(char) * 15);
-	if (!exp)
-		return (1000);
-	memset(exp, 0, 15);
+	int		exp[10] = {10,20,30,40,50,60,70,80,90,100};
+	int		test[10];
 
-	char	*test = (char*)malloc(sizeof(char) * 15);
-	if (!test)
-		return (1000);
-	memset(test, 0, 15);
+	ft_memcpy(test, exp, sizeof(exp));
+	test_mem(exp, test, sizeof(exp), name, "int arr");
 
-	memset(exp, 'f', 12);
-	memset(test, 'f', 12);
-	test_mem(memcpy(exp, "test string", 11), ft_memcpy(test, "test string", 11), 15, name, "exact len");
+	char	*exp1 = ft_strnew(15);
+	char	*test1 = ft_strnew(15);
 
-	memset(exp, 0, 15);
-	memset(test, 0, 15);
-	test_mem(memcpy(exp, "test string", 0), ft_memcpy(test, "test string", 0), 15, name, "0 len");
+	memset(exp1, 'f', 15);
+	memset(test1, 'f', 15);
+	memcpy(exp1+3, "kalle anka", 10);
+	ft_memcpy(test1+3, "kalle anka", 10);
+	test_mem(exp1, test1, 16, name, "test2");
+
+	memcpy(exp1, exp1+5, 5);
+	ft_memcpy(test1, test1+5, 5);
+	test_mem(exp1, test1, 16, name, "test3");
 
 	return (0);
 }
