@@ -21,36 +21,24 @@
 
 int	main(void)
 {
-
 	char	*name = "ft_strncpy";
 
-	char	dst1[10] = "";
-	char	*src1 = "A longer srting than destination";
-	char	dst2[50];
-	char	*src2 = "A shorter string than destination";
 
-	char	ft_dst1[10] = "";
-	char	*ft_src1 = "A longer srting than destination";
-	char	ft_dst2[50];
-	char	*ft_src2 = "A shorter string than destination";
+	char	*test = strdup("Lorem ipsum dolor sit amet");
+	size_t	size = strlen(test) + 5;
+	char	*t_dst = ft_strnew(size);
+	char	*exp = strdup("Lorem ipsum dolor sit amet");
+	char	*e_dst = ft_strnew(size);
 
+	test_mem(strncpy(e_dst, exp, 10), ft_strncpy(t_dst, test, 10), size, name, "test1");
 
-	char	*dest3;
-	if (!(dest3 = (char*)malloc(sizeof(char) * 15)))
-		return (1000);
-	memset(dest3, 0, 15);
-	memset(dest3, 's', 14);
-	char	*ft_dest3;
-	if (!(ft_dest3 = (char*)malloc(sizeof(char) * 15)))
-		return (1000);
-	memset(ft_dest3, 0, 15);
-	memset(ft_dest3, 's', 14);
-	char	*src3 = "lorem";
-	int		len3 = 6;
+	memset(test + 5, '\0', 1);
+	memset(exp + 5, '\0', 1);
+	test_mem(strncpy(e_dst, exp, 10), ft_strncpy(t_dst, test, 10), size, name, "test2");
 
-	test_str(strncpy(dst1, src1, 9), ft_strncpy(ft_dst1, ft_src1, 9), name, "src longer");
-	test_str(strncpy(dst2, src2, 50), ft_strncpy(ft_dst2, ft_src2, 50), name, "src shorter");
+	memset(test, '\0', 5);
+	memset(exp, '\0', 5);
+	test_mem(strncpy(e_dst, exp, size - 4), ft_strncpy(t_dst, test, size - 4), size, name, "test3");
 
-	test_str(strncpy(dest3, src3, len3), ft_strncpy(ft_dest3, src3, len3), name, "??");
 	return (0);
 }
