@@ -6,12 +6,11 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:55:42 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/06 10:50:03 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/11 17:55:28 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILES=(
-	ft_lstfind.out
 	ft_abs.out
 	ft_atoi.out
 	ft_bzero.out
