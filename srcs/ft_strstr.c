@@ -6,7 +6,7 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:43:05 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/02 21:12:24 by mikaelber        ###   ########.fr       */
+/*   Updated: 2019/11/11 14:52:30 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ int	main(void)
 	test_str(strstr(hay2, need2), strstr(hay2, need2), name, "empty haystack");
 	test_str(strstr(hay3, need3), ft_strstr(hay3, need3), name, "empty needle");
 	test_str(strstr(hay3, need2), ft_strstr(hay3, need2), name, "missmatch");
+
+	char	*test = strdup("Kalle anka palle");
+	test_str(strstr(test, test + 12), ft_strstr(test, test + 12), name, "overlapping");
+
+
 	return (0);
 }
