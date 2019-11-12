@@ -24,12 +24,12 @@ int	main(void)
 
 	exp = strdup("kalle anka pelle");
 	test = strdup("kalle anka pelle");
-	test_mem(memmove(exp+5, exp, 10), ft_memmove(test+5, test, 10), size, name, "test2");
+	test_mem(memmove(exp+5, exp, 10), ft_memmove(test+5, test, 10), 10, name, "test2");
 
 
 	exp = strdup("kalle anka pelle");
 	test = strdup("kalle anka pelle");
-	test_mem(memmove(exp+5, exp+4, 10), ft_memmove(test+5, test+4, 10), size, name, "test3");
+	test_mem(memmove(exp+5, exp+4, 10), ft_memmove(test+5, test+4, 10), 10, name, "test3");
 
 	/* corner case test */
 	size_t	size128 =  128 * 1024 * 1024;
