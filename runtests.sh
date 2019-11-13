@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:26:21 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/13 15:23:14 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/13 16:28:05 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ output_test()
 	fls=("${!2}")
 	for file in ${fls[@]}
 	do
-		echo "testing file " $file
 		if [[ ( "$file" = "$1".out || -z "$1" ) && -f "$root/tests/$file".out ]]
 		then
 			# Create dirs
@@ -66,9 +65,6 @@ output_test()
 					j=$((j-1))
 				fi
 			done
-
-			found=1
-			break
 		else
 			echo "No test found for " $file
 		fi

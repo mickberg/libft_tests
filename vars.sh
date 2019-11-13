@@ -6,7 +6,7 @@
 #    By: mikaelberglund <marvin@42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 14:50:35 by mikaelber         #+#    #+#              #
-#    Updated: 2019/11/13 14:54:37 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/13 16:41:36 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ OUTPUT=(
 	ft_putchar
 	ft_putstr
 	ft_putendl
+	ft_putnbr
 	ft_putchar_fd
 	ft_putstr_fd
 	ft_putendl_fd

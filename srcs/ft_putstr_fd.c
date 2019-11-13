@@ -5,17 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 18:32:49 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/01 18:33:40 by mberglun         ###   ########.fr       */
+/*   Created: 2019/11/13 16:46:57 by mberglun          #+#    #+#             */
+/*   Updated: 2019/11/13 16:46:58 by mberglun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 
-int	main(void)
+static int	ft_expected(int n)
 {
+	char	*str;
 
-	ft_putstr_fd("ft_putstr_fd", 0);
-	ft_putstr_fd("\n", 1);
+	if (n == -1)
+	{
+		str = "test string \n\t lala \0";
+		write(1, str, strlen(str));
+	}
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	int		n;
+	char	*str;
+
+	if (argc == 1 || (n = atoi(argv[1])) == 0)
+		return (0);
+
+	if (n < 0)
+		return ft_expected(n);
+	else if (n == 1)
+	{
+		str = "test string \n\t lala \0";
+		ft_putstr_fd(str, 1);
+	}
 	return (0);
 }
