@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:26:21 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/13 15:00:14 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/13 15:23:14 by mikaelber        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ normal_test() {
 	fls=("${!2}")
 	for file in ${fls[@]}
 	do
-		if [[ "$file" = "$1" && -f "$root/tests/$file".out ]]
+		if [[ ( "$file" = "$1" || -z "$1" ) && -f "$root/tests/$file".out ]]
 		then
 			"$root/tests/$file".out
 			found=1
@@ -27,86 +27,77 @@ normal_test() {
 	done
 }
 
+output_test()
+{
+	fls=("${!2}")
+	for file in ${fls[@]}
+	do
+		echo "testing file " $file
+		if [[ ( "$file" = "$1".out || -z "$1" ) && -f "$root/tests/$file".out ]]
+		then
+			# Create dirs
+			if [ ! -d $root/outputs/$1 ]
+			then
+				mkdir -p $root/outputs/$1
+			fi
+
+			i=1;
+			j=-1;
+			while [ $i -ne 0 ]
+			do
+				res=$("$root/tests/$file".out "$i" | cat -t)
+				if [ -z "$res" ]
+				then
+					i=0
+					break
+				else
+					echo "$res" > $root/outputs/$1/usr_out$i
+					exp=$("$root/tests/$file".out "$j" | cat -t)
+					echo "$exp" > $root/outputs/$1/exp_out$i
+
+					diff=$( diff $root/outputs/$1/usr_out$i $root/outputs/$1/exp_out$i )
+					if [ ! -z "$diff" ]
+					then
+						echo "Failed [$file] [test$i] failed\n - Expected [$exp] got [$res]\n"
+					else
+						echo "Passed [$file] [test$i]"
+					fi
+					i=$((i+1))
+					j=$((j-1))
+				fi
+			done
+
+			found=1
+			break
+		else
+			echo "No test found for " $file
+		fi
+	done
+}
+
 if [[ "$1" = "part1" ]]
 then
 	found=1
-	for file in ${PART1[@]}
-	do
-		if [ -f "$root/tests/$file".out ]
-		then
-			"$root/tests/$file".out
-		else
-			echo "No test found for " $file
-		fi
-	done
+	normal_test "" PART1[@]
 elif [[ "$1" = "part2" ]]
 then
 	found=1
-	for file in ${PART2[@]}
-	do
-		if [ -f "$root/tests/$file".out ]
-		then
-			"$root/tests/$file".out
-		else
-			echo "No test found for " $file
-		fi
-	done
+	normal_test "" PART2[@]
 elif [[ "$1" = "partb" ]]
 then
 	found=1
-	for file in ${PARTB[@]}
-	do
-		if [ -f "$root/tests/$file".out ]
-		then
-			"$root/tests/$file".out
-		else
-			echo "No test found for " $file
-		fi
-	done
+	normal_test "" PARTB[@]
+elif [[ "$1" = "outs" ]]
+then
+	found=1
+	output_test "" OUTPUT[@]
 else
+	# search for specific test
 	normal_test $1 PART1[@]
 	normal_test $1 PART2[@]
 	normal_test $1 PARTB[@]
+	output_test $1 OUTPUT[@]
 fi
-
-for	file in ${OFILES[@]}
-do
-	if [[ "$file" = "$1".out && -f $root/tests/$file ]]
-	then
-		# Create dirs
-		if [ ! -d $root/outputs/$1 ]
-		then
-			mkdir -p $root/outputs/$1
-		fi
-
-		i=1;
-		j=-1;
-		while [ $i -ne 0 ]
-		do
-			res=$($root/tests/$file "$i" | cat -t)
-			if [ -z "$res" ]
-			then
-				i=0
-				break
-			else
-				echo "$res" > $root/outputs/$1/usr_out$i
-				exp=$($root/tests/$file "$j" | cat -t)
-				echo "$exp" > $root/outputs/$1/exp_out$i
-
-				diff=$( diff $root/outputs/$1/usr_out$i $root/outputs/$1/exp_out$i )
-				if [ ! -z "$diff" ]
-				then
-					echo "Test $i failed\n - Expected [$exp] got [$res]\n"
-				fi
-				i=$((i+1))
-				j=$((j-1))
-			fi
-		done
-
-		found=1
-		break
-	fi
-done
 
 if [ $found -eq 0 ]
 then
