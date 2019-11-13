@@ -32,6 +32,21 @@ int	test_ptr(void *ex, void *test, char *name, char *test_id)
 	}
 }
 
+void	print_mem(void *mem, size_t len)
+{
+	unsigned char	*s;
+
+	s = (unsigned char*)mem;
+	while (len--)
+	{
+		if (isprint((int)*s))
+			printf("%c", *s);
+		else
+			printf("{%d}", (int)*s);
+		++s;
+	}
+}
+
 int	test_mem(void *ex, void *test, size_t len, char *name, char *test_id)
 {
 	if ((ex == NULL && test == NULL) || (ex != NULL && test != NULL && (memcmp(ex,test,len) == 0)))
@@ -41,7 +56,12 @@ int	test_mem(void *ex, void *test, size_t len, char *name, char *test_id)
 	}
 	else
 	{
-		printf("Failed [%s] [%s]\n - Expected [%s] got [%s]\n", name, test_id, (char*)ex, (char*)test);
+		printf("Failed [%s] [%s]\n - Expected [", name, test_id); //%s] got [%s]\n", name, test_id, (char*)ex, (char*)test);
+		print_mem(ex, len);
+		printf("] got [");
+		print_mem(test, len);
+		printf("]\n");
+
 		return (1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 16:34:30 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/02 21:11:10 by mikaelber        ###   ########.fr       */
+/*   Updated: 2019/11/13 12:55:27 by mikaelber        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(void)
 	memset(test, 'A', 11);
 	exp[0] = '\0';
 	test[0] = '\0';
-	test_mem(ft_strnew(0), ft_strmap(test, &ft_upper), 15, name, "\"empty\" string");
+	test_mem(exp, ft_strmap(test, &ft_upper), 1, name, "\"empty\" string");
 
 	memset(exp, '`', 5);
 	memset(test, '`', 5);
