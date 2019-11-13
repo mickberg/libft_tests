@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:26:21 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/13 16:28:05 by mberglun         ###   ########.fr        #
+#    Updated: 2019/11/13 16:54:41 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,9 @@ output_test()
 		if [[ ( "$file" = "$1".out || -z "$1" ) && -f "$root/tests/$file".out ]]
 		then
 			# Create dirs
-			if [ ! -d $root/outputs/$1 ]
+			if [ ! -d $root/outputs/$file ]
 			then
-				mkdir -p $root/outputs/$1
+				mkdir -p $root/outputs/$file
 			fi
 
 			i=1;
@@ -50,11 +50,11 @@ output_test()
 					i=0
 					break
 				else
-					echo "$res" > $root/outputs/$1/usr_out$i
+					echo "$res" > $root/outputs/$file/usr_out$i
 					exp=$("$root/tests/$file".out "$j" | cat -t)
-					echo "$exp" > $root/outputs/$1/exp_out$i
+					echo "$exp" > $root/outputs/$file/exp_out$i
 
-					diff=$( diff $root/outputs/$1/usr_out$i $root/outputs/$1/exp_out$i )
+					diff=$( diff $root/outputs/$file/usr_out$i $root/outputs/$file/exp_out$i )
 					if [ ! -z "$diff" ]
 					then
 						echo "Failed [$file] [test$i] failed\n - Expected [$exp] got [$res]\n"
