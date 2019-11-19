@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:26:21 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/13 16:54:41 by mberglun         ###   ########.fr        #
+#    Updated: 2019/11/19 18:40:17 by mikaelber        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,13 +51,21 @@ output_test()
 					break
 				else
 					echo "$res" > $root/outputs/$file/usr_out$i
-					exp=$("$root/tests/$file".out "$j" | cat -t)
-					echo "$exp" > $root/outputs/$file/exp_out$i
 
-					diff=$( diff $root/outputs/$file/usr_out$i $root/outputs/$file/exp_out$i )
+					# expected
+					exp=$("$root/tests/$file".out "$j" | cat -t)
+					if [[ ! "$exp" = "N/A" ]]
+					then
+						echo "$exp" > $root/outputs/$file/exp_out$i
+					fi
+
+					# diff check
+					diff=$( diff $root/outputs/$file/exp_out$i $root/outputs/$file/usr_out$i )
 					if [ ! -z "$diff" ]
 					then
-						echo "Failed [$file] [test$i] failed\n - Expected [$exp] got [$res]\n"
+						expF=$( cat -e $root/outputs/$file/exp_out$i )
+						usrF=$( cat -e $root/outputs/$file/usr_out$i )
+						echo "Failed [$file] [test$i] failed\n - Expected [$expF] got [$usrF]\n"
 					else
 						echo "Passed [$file] [test$i]"
 					fi
