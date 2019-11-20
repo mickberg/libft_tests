@@ -17,7 +17,6 @@
 #include <stdio.h>
 #include <math.h>
 #include <ctype.h>
-#include "../libft/libft.h"
 
 int		test_int(int ex, int test, char *name, char *test_id);
 int		test_str(char *ex, char *test, char *name, char *test_id);

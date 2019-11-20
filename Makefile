@@ -6,48 +6,55 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 17:10:30 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/19 21:48:07 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/20 19:26:52 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-NAME = testlib
 
 # Directories, library and tests
 TEST_DIR = tests/
 OUT_DIR	= bins/
-MKDIR_P = mkdir -p
-
 SRC_DIR = ../getnextline/
-LIBFT_DIR = $(PROD_DIR)libft/
+LIBFT_DIR = $(SRC_DIR)libft/
+
+LIB = $(LIBFT_DIR)libft.a
+MKDIR_P = mkdir -p
 
 # Files, library and tests
 SRCS = get_next_line.c
-TEST_FILES = testers.c
-PART1 = test1.c
-
 SRC_FILES = $(addprefix $(SRC_DIR), $(SRCS))
 SRC_OBJ = $(addprefix $(OUT_DIR), $(SRCS:.c=.o))
+TESTF = testers.c
+TEST_FILES = $(addprefix $(TEST_DIR), $(TESTF))
 
+PART1 = test1.c
+
+# TESTS
 PART1_O	= $(addprefix $(OUT_DIR), $(PART1:.c=.out))
 
 all: part1
 
-part1: dirs $(SRC_OBJ)
+part1: dirs $(LIB) $(PART1_O)
+
+# MAKE libft.a
+$(LIB):
+	make -C $(LIBFT_DIR) fclean && make -C $(LIBFT_DIR)
 
 # COMPILE SOURCE FILES FIRST
 $(SRC_OBJ): $(OUT_DIR)%.o : $(SRC_DIR)%.c $(SRC_FILES)
 	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -o $@ -c $<
 
-$(PART1_O): $(OUT_DIR)%.out : $(SRC_DIR)%.c $(SRC_OBJS)
-	$(CC) $(CFLAGS) $< srcs/testers.c -o $@ -L../libft/ -lft -I ./
+# THEN COMPILE TEST FILES
+$(PART1_O): $(OUT_DIR)%.out : $(TEST_DIR)%.c $(SRC_OBJS)
+	$(CC) $(CFLAGS) $< $(SRC_OBJS) $(TEST_FILES) -o $@ -L../libft/ -lft -I ./
 
 clean:
-	-rm -rf $(OUT_DIR)
+	-rm -rf $(SRC_OBJ)
 
 fclean: clean
-	-rm -f $(NAME)
+	-rm -rf $(OUT_DIR)
 
 re: fclean all
 
