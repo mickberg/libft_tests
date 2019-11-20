@@ -3,3 +3,4 @@ objs/
 *.swp
 *.out
 outputs/
+bins/
