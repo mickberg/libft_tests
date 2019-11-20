@@ -1,0 +1,45 @@
+/**
+ * File              : ft_strnstr.c
+ * Author            : Mikael Berglund <mikael.berglund2@gmail.com>
+ * Date              : 28.10.2019
+ * Last Modified Date: 28.10.2019
+ * Last Modified By  : Mikael Berglund <mikael.berglund2@gmail.com>
+ */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 18:21:46 by mberglun          #+#    #+#             */
+/*   Updated: 2019/10/24 18:23:31 by mberglun         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "testlib.h"
+
+int	main(void)
+{
+
+	char	*name = "ft_strnstr";
+
+	char *hay1 = "abbabba";
+	char *need1 = "bb";
+	char *hay2 = "aaa";
+	char *need2 = "ale";
+	char *hay3 = "kalle";
+	char *need3 = "";
+
+	char	*hay4 = "lorem ipsum dolor sit amet";
+	char	*need4 = "dolor";
+	int		len4 = 15;
+
+	test_str(strnstr(hay1, need1, 5), ft_strnstr(hay1, need1, 5), name, "multiple matches");
+	test_str(strnstr(hay2, need2, 10), strnstr(hay2, need2, 10), name, "empty haystack");
+	test_str(strnstr(hay3, need3, 1), ft_strnstr(hay3, need3, 1), name, "empty needle");
+	test_str(strnstr(hay3, need2, 3), ft_strnstr(hay3, need2, 3), name, "missmatch");
+	test_str(strnstr("VaarinOikein", "Oikein", 12), ft_strnstr("VaarinOikein", "Oikein", 12), name, "exact len");
+	test_str(strnstr(hay4, need4, len4), ft_strnstr(hay4, need4, len4), name, "??");
+	return (0);
+}
