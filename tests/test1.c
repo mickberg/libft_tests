@@ -6,13 +6,13 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 19:20:39 by mberglun          #+#    #+#             */
-/*   Updated: 2019/11/20 19:21:12 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/11/20 19:32:00 by mberglun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 
-int		main(void)
+int		main()
 {
 	printf("hello tests!\n");
 	return (0);

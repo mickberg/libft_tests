@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 17:10:30 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/20 19:26:52 by mberglun         ###   ########.fr        #
+#    Updated: 2019/11/20 19:40:32 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC_OBJ = $(addprefix $(OUT_DIR), $(SRCS:.c=.o))
 TESTF = testers.c
 TEST_FILES = $(addprefix $(TEST_DIR), $(TESTF))
 
-PART1 = test1.c
+PART1 = test1.c basic.c
 
 # TESTS
 PART1_O	= $(addprefix $(OUT_DIR), $(PART1:.c=.out))
@@ -44,11 +44,11 @@ $(LIB):
 
 # COMPILE SOURCE FILES FIRST
 $(SRC_OBJ): $(OUT_DIR)%.o : $(SRC_DIR)%.c $(SRC_FILES)
-	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -o $@ -c $<
+	$(CC) $(CFLAGS) -I $(SRC_DIR) -o $@ -c $<
 
 # THEN COMPILE TEST FILES
-$(PART1_O): $(OUT_DIR)%.out : $(TEST_DIR)%.c $(SRC_OBJS)
-	$(CC) $(CFLAGS) $< $(SRC_OBJS) $(TEST_FILES) -o $@ -L../libft/ -lft -I ./
+$(PART1_O): $(OUT_DIR)%.out : $(TEST_DIR)%.c $(SRC_OBJ)
+	$(CC) $(CFLAGS) $(SRC_OBJ) $< $(SRC_OBJS) $(TEST_FILES) -o $@ -L$(LIBFT_DIR) -lft -I ./
 
 clean:
 	-rm -rf $(SRC_OBJ)
