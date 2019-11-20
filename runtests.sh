@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 18:26:21 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/19 18:40:17 by mikaelber        ###   ########.fr        #
+#    Updated: 2019/11/20 20:11:30 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ normal_test() {
 	fls=("${!2}")
 	for file in ${fls[@]}
 	do
-		if [[ ( "$file" = "$1" || -z "$1" ) && -f "$root/tests/$file".out ]]
+		if [[ ( "$file" = "$1" || -z "$1" ) && -f "$root/bins/$file".out ]]
 		then
-			"$root/tests/$file".out
+			"$root/bins/$file".out
 			found=1
 		fi
 	done
@@ -32,7 +32,7 @@ output_test()
 	fls=("${!2}")
 	for file in ${fls[@]}
 	do
-		if [[ ( "$file" = "$1".out || -z "$1" ) && -f "$root/tests/$file".out ]]
+		if [[ ( "$file" = "$1".out || -z "$1" ) && -f "$root/bins/$file".out ]]
 		then
 			# Create dirs
 			if [ ! -d $root/outputs/$file ]
@@ -44,7 +44,7 @@ output_test()
 			j=-1;
 			while [ $i -ne 0 ]
 			do
-				res=$("$root/tests/$file".out "$i" | cat -t)
+				res=$("$root/bins/$file".out "$i" | cat -t)
 				if [ -z "$res" ]
 				then
 					i=0
@@ -53,7 +53,7 @@ output_test()
 					echo "$res" > $root/outputs/$file/usr_out$i
 
 					# expected
-					exp=$("$root/tests/$file".out "$j" | cat -t)
+					exp=$("$root/bins/$file".out "$j" | cat -t)
 					if [[ ! "$exp" = "N/A" ]]
 					then
 						echo "$exp" > $root/outputs/$file/exp_out$i
@@ -63,9 +63,7 @@ output_test()
 					diff=$( diff $root/outputs/$file/exp_out$i $root/outputs/$file/usr_out$i )
 					if [ ! -z "$diff" ]
 					then
-						expF=$( cat -e $root/outputs/$file/exp_out$i )
-						usrF=$( cat -e $root/outputs/$file/usr_out$i )
-						echo "Failed [$file] [test$i] failed\n - Expected [$expF] got [$usrF]\n"
+						echo "Failed [$file] [test$i] failed. DIFF:\n$diff\n"
 					else
 						echo "Passed [$file] [test$i]"
 					fi
@@ -82,7 +80,7 @@ output_test()
 if [[ "$1" = "part1" ]]
 then
 	found=1
-	normal_test "" PART1[@]
+	output_test "" PART1[@]
 elif [[ "$1" = "part2" ]]
 then
 	found=1

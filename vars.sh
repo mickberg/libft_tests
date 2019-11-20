@@ -6,39 +6,12 @@
 #    By: mikaelberglund <marvin@42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 14:50:35 by mikaelber         #+#    #+#              #
-#    Updated: 2019/11/13 16:41:36 by mberglun         ###   ########.fr        #
+#    Updated: 2019/11/20 20:10:21 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PART1=(
-	ft_memset
-	ft_bzero
-	ft_memcpy
-	ft_memccpy
-	ft_memmove
-	ft_memchr
-	ft_memcmp
-	ft_strlen
-	ft_strdup
-	ft_strcpy
-	ft_strncpy
-	ft_strcat
-	ft_strncat
-	ft_strlcat
-	ft_strchr
-	ft_strrchr
-	ft_strstr
-	ft_strnstr
-	ft_strcmp
-	ft_strncmp
-	ft_atoi
-	ft_isalpha
-	ft_isdigit
-	ft_isalnum
-	ft_isascii
-	ft_isprint
-	ft_toupper
-	ft_tolower
+	test1
 );
 
 PART2=(
