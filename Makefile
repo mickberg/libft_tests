@@ -6,7 +6,7 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 17:10:30 by mberglun          #+#    #+#              #
-#    Updated: 2019/11/13 16:40:13 by mberglun         ###   ########.fr        #
+#    Updated: 2019/11/19 21:48:07 by mikaelber        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,42 +15,32 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = testlib
 
 # Directories, library and tests
-SRC_DIR = srcs/
-OBJ_DIR = objs/
-OUT_DIR	= tests/
-
+TEST_DIR = tests/
+OUT_DIR	= bins/
 MKDIR_P = mkdir -p
 
+SRC_DIR = ../getnextline/
+LIBFT_DIR = $(PROD_DIR)libft/
+
 # Files, library and tests
-PART1 = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c \
-		ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c \
-		ft_strchr.c ft_strrchr.c ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c ft_atoi.c \
-		ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c
+SRCS = get_next_line.c
+TEST_FILES = testers.c
+PART1 = test1.c
 
-PART2 = ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c \
-		ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c \
-		ft_strsplit.c ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
-		ft_putendl_fd.c ft_putnbr_fd.c
-
-PARTB = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c
+SRC_FILES = $(addprefix $(SRC_DIR), $(SRCS))
+SRC_OBJ = $(addprefix $(OUT_DIR), $(SRCS:.c=.o))
 
 PART1_O	= $(addprefix $(OUT_DIR), $(PART1:.c=.out))
-PART2_O	= $(addprefix $(OUT_DIR), $(PART2:.c=.out))
-PARTB_O	= $(addprefix $(OUT_DIR), $(PARTB:.c=.out))
 
-all: part1 part2 partb
+all: part1
 
-part1: dirs $(PART1_O)
-part2: dirs $(PART2_O)
-partb: dirs $(PARTB_O)
+part1: dirs $(SRC_OBJ)
 
-$(PART1_O): $(OUT_DIR)%.out : $(SRC_DIR)%.c srcs/testers.c ../libft/libft.a
-	$(CC) $(CFLAGS) $< srcs/testers.c -o $@ -L../libft/ -lft -I ./
+# COMPILE SOURCE FILES FIRST
+$(SRC_OBJ): $(OUT_DIR)%.o : $(SRC_DIR)%.c $(SRC_FILES)
+	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -o $@ -c $<
 
-$(PART2_O): $(OUT_DIR)%.out : $(SRC_DIR)%.c srcs/testers.c ../libft/libft.a
-	$(CC) $(CFLAGS) $< srcs/testers.c -o $@ -L../libft/ -lft -I ./
-
-$(PARTB_O): $(OUT_DIR)%.out : $(SRC_DIR)%.c srcs/testers.c ../libft/libft.a
+$(PART1_O): $(OUT_DIR)%.out : $(SRC_DIR)%.c $(SRC_OBJS)
 	$(CC) $(CFLAGS) $< srcs/testers.c -o $@ -L../libft/ -lft -I ./
 
 clean:
